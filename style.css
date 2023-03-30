@@ -1,0 +1,62 @@
+:root{
+  --pomodoro: #BFD0E0;
+  --shortBreak: #90d7ff;
+  --longBreak: #5dfdcb;
+
+  --baseColor: #b8b3be;
+  --progressColor: #c9f9ff;
+}
+
+body{
+  background-color: var(--pomodoro);
+  min-height: 100vh;
+  font-family: 'Fira Sans', sans-serif;
+  overflow: hidden;
+}
+
+.app{
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  height: calc(100vh - 30px);
+}
+
+.progress-bar{
+  background-color: var(--baseColor);
+  border-radius: 5px;
+  height: 20px;
+  width: 100%;
+}
+
+.progress-bar-fill{
+  background-color: var(--progressColor);
+  border-radius: 5px;
+  height: 20px;
+  width: 50%;
+}
+
+.button{
+  background-color: transparent;
+  border: 1px solid var(--baseColor);
+  border-radius: 30px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1.3rem;
+}
+
+.time{
+  margin: 2rem auto;
+  max-width: 70%;
+  font-size: 5rem;
+}
+
+.start-button{
+  font-size: 1.5rem;
+  padding: 0.4rem 1rem;
+}
+
+.active{
+  background-color: var(--baseColor);
+  color: var(--progressColor);
+}

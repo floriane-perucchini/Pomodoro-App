@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Pomodoro App</title>
+</head>
+<body>
+
+  <main class="app">
+    <div class="progress-bar">
+      <div class="progress-bar-fill"></div>
+    </div>
+    <section>
+      <h1>Pomodoro App</h1>
+      <div class="button-group">
+        <button data-time="pomodoro" class="button timer-button">Pomodoro</button>
+        <button data-time="shortBreak" class="button timer-button">Short Break</button>
+        <button data-time="longBreak" class="button timer-button">Long Break</button>
+      </div>
+    </section>
+
+    <section class="timer-container">
+        <div class="time">
+          <span class="minutes">25</span>
+          <span class="separator"> : </span>
+          <span class="seconds">00</span>
+        </div>
+        <button data-status="start" class="button start-button">Start</button>
+    </section>
+  </main>
+  
+
+  <script type="module" src="./JS/main.js"></script>
+</body>
+</html>
