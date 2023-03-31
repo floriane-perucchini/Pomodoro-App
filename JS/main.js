@@ -135,6 +135,52 @@ function getTimeRemaining(endTime) {
   };
 }
 
+/* TASKS */
+
+const formTaskElem = document.querySelector(".form-task");
+formTaskElem.addEventListener("submit", handleFormTask);
+
+function handleFormTask(event){
+  event.preventDefault();
+
+  const input = event.target.querySelector("input");
+  const task = input.value;
+  if(task){
+    addTask(task);
+    input.value = "";
+  }
+}
+
+function addTask(task){
+  const tasksContainer = document.querySelector(".tasks-container");
+
+  const taskElem = document.createElement('label')
+  taskElem.classList.add('task')
+  const checkBoxElem = document.createElement('input')
+  checkBoxElem.type = 'checkbox'
+  checkBoxElem.classList.add('task-checkbox')
+
+  const taskTextElem = document.createElement('span')
+  taskTextElem.classList.add('task-name')
+  taskTextElem.textContent = task
+
+  taskElem.appendChild(checkBoxElem);
+  taskElem.appendChild(taskTextElem);
+
+  tasksContainer.appendChild(taskElem);
+
+}
+
+window.onload = () => {
+    document.querySelectorAll("button.particleButton").forEach(btn => {
+        let btnBg = btn.parentNode.querySelector(".particles")
+        let initalListener = () => {
+            btnBg.classList.add("animated")
+            btn.removeEventListener("click", initalListener)
+        }
+        btn.addEventListener("click", initalListener)
+    })
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimer("pomodoro");

@@ -36,27 +36,63 @@ body{
   width: 0%;
 }
 
-.button{
-  background-color: transparent;
-  border: 1px solid var(--baseColor);
-  border-radius: 30px;
-  padding: 10px;
-  margin: 5px;
-  font-size: 1.3rem;
-}
-
 .time{
   margin: 2rem auto;
   max-width: 70%;
   font-size: 5rem;
 }
 
-.start-button{
-  font-size: 1.5rem;
-  padding: 0.4rem 1rem;
-}
-
 .active{
   background-color: var(--baseColor);
   color: var(--progressColor);
+}
+
+
+.task-input{
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 1.3rem;
+  width: 60%;
+}
+
+.task{
+  display: block;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px auto;
+  font-size: 1.3rem;
+  width: 60%;
+  text-align: left;
+}
+
+.task-checkbox{
+  margin-right: 5px;
+}
+
+.task:hover{
+  background-color: var(--baseColor);
+}
+
+.start-button{
+  font-size: 1.5rem;
+  padding: 0.4rem 1rem;
+  background-color: var(--progressColor);
+  width: 100px;
+  height: 100px;
+  margin: 2rem;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  border: none;  
+}
+
+.button{
+  background-color: transparent;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1.3rem;
+  border: 1px solid var(--baseColor);
 }
