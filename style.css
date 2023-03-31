@@ -33,7 +33,7 @@ body{
   background-color: var(--progressColor);
   border-radius: 5px;
   height: 20px;
-  width: 50%;
+  width: 0%;
 }
 
 .button{

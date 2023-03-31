@@ -17,10 +17,11 @@ function handleTimer(event){
   if(!timer){
     return;
   }
-  console.log(timer)
   setTimer(timer)
-  handleStatusButton({target: statusButton});
-
+  clearInterval(interval);
+  if(statusButton.dataset.status === "stop"){
+  handleStatusButton({target: document.querySelector(".start-button")})
+  }
 }
 
 function handleStatusButton(event){
@@ -48,7 +49,6 @@ function setTimer(mode){
     minutes: timer[mode],
     seconds: 0,
   };
-  console.log(timer)
 
   const activeButtons = document.querySelectorAll("button[data-time]");
   for(let button of activeButtons){
@@ -56,15 +56,13 @@ function setTimer(mode){
   }
 
   document.querySelector(`[data-time=${mode}]`).classList.add("active");
-
-  document.title = `Pomodoro Timer - ${timer[mode]} minutes`;
   document.body.style.backgroundColor = `var(--${mode})`
 
   updateClock();
 }
 
 function updateClock() {
-  const {remainingTime} = timer;
+  const {remainingTime, mode} = timer;
 
   const minutes = `${remainingTime.minutes}`.padStart(2, "0");
   const seconds = `${remainingTime.seconds}`.padStart(2, "0");
@@ -74,6 +72,15 @@ function updateClock() {
 
   minutesElem.textContent = minutes;
   secondsElem.textContent = seconds;
+
+  const title = timer.mode === 'pomodoro' ? 'Time to work !' :  'Take a break !'
+  document.title = `${minutes}:${seconds} - ${title}`;
+
+  const totalMode = timer[mode] * 60;
+
+  const progressBar = document.querySelector('.progress-bar-fill');
+  progressBar.style.width = `${(totalMode - remainingTime.total) * 100 / totalMode}%` ;
+
 };
 
 function startTimer() {
@@ -91,6 +98,7 @@ function startTimer() {
     total = timer.remainingTime.total;
     if(total <= 0){
       clearInterval(interval);
+      alert(`${timer.mode} is over !`)
 
       switch (timer.mode) {
         case "pomodoro":
@@ -104,7 +112,7 @@ function startTimer() {
           break;
           default:
             setTimer("pomodoro");
-            startTimer();
+            startTimer();    
       }
     }
   }, 1000);
